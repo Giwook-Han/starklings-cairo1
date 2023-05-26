@@ -41,6 +41,12 @@ mod ContractA {
     fn set_value(
         _value: u128
     ) -> bool { //TODO: check if contract_b is enabled. If it is, set the value and return true. Otherwise, return false.
+        if (IContractBDispatcher{ contract_address: contract_b::read() }.is_enabled()) {
+            value::write(_value);
+            true
+        } else {
+            false
+        }
     }
 
     #[view]
@@ -120,6 +126,7 @@ mod test {
         let contract_b = IContractBDispatcher { contract_address: address_b };
 
         //TODO interact with contract_b to make the test pass.
+        contract_b.enable();
 
         assert(contract_a.set_value(300) == true, 'Could not set value');
         assert(contract_a.get_value() == 300, 'Value was not set');

@@ -4,26 +4,26 @@
 // Other exercises will require you to write Cairo code to make the exercise file compile.
 // Remove "I AM NOT DONE" comment when you are ready to move to the next exercise.
 
-// I AM NOT DONE
+// use starknet::ContractAddress;
+// use traits::TryInto; // Base TryInto trait
+// use starknet::Felt252TryIntoContractAddress; // felt > ContractAddress impl
+// use starknet::contract_address_to_felt252;
+// use option::OptionTrait; // To unwrap
 
-use starknet::ContractAddress;
-use traits::TryInto; // Base TryInto trait
-use starknet::Felt252TryIntoContractAddress; // felt > ContractAddress impl
-use starknet::contract_address_to_felt252;
-use option::OptionTrait; // To unwrap
+// use debug::PrintTrait; // Just for printing
 
-use debug::PrintTrait; // Just for printing
+// #[contract]
+// mod testCon {
 
-#[contract]
-mod testCon {
+//     struct Storage{
+//         test: LegacyMap::<felt252,felt252>
+//     }
 
-    struct Storage{
-        test: LegacyMap::<felt252,felt252>
-    }
+//     #[view]
+//     fn testFn() -> felt252 {
+//         let temp = test::read('a');
+//         temp
+//     }
+// }
 
-    #[view]
-    fn testFn() -> felt252 {
-        let temp = test::read('a');
-        temp
-    }
-}
+fn main() {}
